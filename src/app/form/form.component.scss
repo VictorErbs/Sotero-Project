@@ -1,0 +1,107 @@
+// Estilo geral da página
+body {
+  background: linear-gradient(to right, #2c3e50, #34495e); // Fundo gradiente da página
+  font-family: 'Roboto', sans-serif; // Fonte padrão
+  color: #fff; // Cor do texto
+  min-height: 100vh; // Altura mínima para ocupar a tela inteira
+  display: flex; // Centraliza o conteúdo usando flexbox
+  justify-content: center; // Alinha o conteúdo horizontalmente ao centro
+  align-items: center; // Alinha o conteúdo verticalmente ao centro
+  margin: 0; // Remove margens padrão do navegador
+}
+
+// Estilização do formulário
+form {
+  background: #2c3e50; // Fundo do formulário
+  color: #fff; // Cor do texto no formulário
+  border-radius: 10px; // Bordas arredondadas
+  padding: 30px; // Espaçamento interno
+  max-width: 400px; // Largura máxima do formulário
+  width: 100%; // Faz o formulário ocupar toda a largura disponível
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); // Sombra para destaque
+  transition: transform 0.3s ease, box-shadow 0.3s ease; // Animações suaves ao interagir com o formulário
+
+  // Animação 
+  &:hover {
+    transform: translateY(-5px); // Levanta o formulário levemente ao passar o mouse
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); // Aumenta a intensidade da sombra ao passar o mouse
+  }
+
+  // Titulos
+  h2 {
+    text-align: center; // Centraliza o título
+    font-weight: bold; // Deixa o título em negrito
+    color: #ecf0f1; // Cor do título
+    margin-bottom: 20px; // Espaçamento inferior
+  }
+
+  // Controle do formulário
+  .form-control {
+    border-radius: 8px; // Bordas arredondadas dos inputs
+    border: 1px solid #7f8c8d; // Borda padrão
+    padding: 12px; // Espaçamento interno
+    font-size: 1rem; // Tamanho da fonte
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; // Animações suaves para borda e sombra
+    background: #34495e; // Fundo dos campos
+    color: #fff; // Cor do texto nos campos
+
+    &:focus {
+      border-color: #3498db; // Cor da borda ao focar
+      box-shadow: 0 0 6px rgba(52, 152, 219, 0.5); // Sombra ao focar
+    }
+
+    &.is-invalid {
+      border-color: #e74c3c; // Cor da borda ao ser inválido
+      background: #f8d7da; // Fundo de erro suave
+    }
+  }
+
+  .form-label {
+    font-weight: 600; // Peso da fonte
+    color: #ecf0f1; // Cor do texto
+    margin-bottom: 8px; // Espaçamento inferior
+    display: block; // Garante que a label ocupe uma linha inteira
+  }
+
+  .text-danger {
+    font-size: 0.85rem; // Tamanho da fonte reduzido
+    margin-top: 5px; // Espaçamento superior
+    font-weight: bold; // Texto em negrito
+    color: #e74c3c; // Cor de erro
+  }
+
+  .btn {
+    background: linear-gradient(to right, #3498db, #2980b9); // Fundo gradiente do botão
+    color: #fff; // Cor do texto
+    border: none; // Remove borda padrão
+    padding: 12px; // Espaçamento interno
+    border-radius: 8px; // Bordas arredondadas
+    font-size: 1.1rem; // Tamanho da fonte
+    font-weight: 600; // Peso da fonte
+    width: 100%; // Largura total do botão
+    transition: background 0.3s ease, transform 0.3s ease; // Transições suaves para interações
+
+    &:hover {
+      background: linear-gradient(to right, #2980b9, #3498db); // Inverte o gradiente ao passar o mouse
+      transform: translateY(-3px); // Move o botão para cima ao passar o mouse
+    }
+
+    &:active {
+      transform: translateY(0); // Retorna à posição original ao clicar
+      background: linear-gradient(to right, #3498db, #2980b9); // Mantém o gradiente ao clicar
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: 576px) {
+  form {
+    padding: 20px; // Reduz o espaçamento interno em telas menores
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); // Sombra mais suave para dispositivos menores
+  }
+
+  .btn {
+    font-size: 1rem; // Reduz o tamanho da fonte do botão
+    padding: 10px; // Reduz o espaçamento interno do botão
+  }
+}

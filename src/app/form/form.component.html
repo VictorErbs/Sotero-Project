@@ -1,0 +1,59 @@
+<form (ngSubmit)="onSubmit()" #formRef="ngForm" novalidate>
+  <!-- Componente do Bootstrap -->
+  <div class="mb-3"> <!-- Componente do Bootstrap -->
+    <label for="name" class="form-label">Nome</label> <!-- Componente do Bootstrap -->
+    <input 
+      id="name" 
+      name="name" 
+      [(ngModel)]="user.name" 
+      class="form-control" 
+      required 
+      #name="ngModel"
+      [ngClass]="{'is-invalid': name.invalid && name.touched}" /> <!-- Componente do Bootstrap -->
+    <div *ngIf="name.invalid && name.touched" class="text-danger"> <!-- Componente do Bootstrap -->
+      Nome é obrigatório.
+    </div>
+  </div>
+  
+  <div class="mb-3"> <!-- Componente do Bootstrap -->
+    <label for="email" class="form-label">Email</label> <!-- Componente do Bootstrap -->
+    <input 
+      id="email" 
+      name="email" 
+      [(ngModel)]="user.email" 
+      class="form-control" 
+      required 
+      type="email" 
+      #email="ngModel"
+      [ngClass]="{'is-invalid': email.invalid && email.touched}" /> <!-- Componente do Bootstrap -->
+    <div *ngIf="email.invalid && email.touched" class="text-danger"> <!-- Componente do Bootstrap -->
+      Email inválido.
+    </div>
+    <div *ngIf="formRef.submitted && !user.email" class="text-danger"> <!-- Componente do Bootstrap -->
+      Email é obrigatório.
+    </div>
+  </div>
+  
+  <div class="mb-3"> <!-- Componente do Bootstrap -->
+    <label for="age" class="form-label">Idade</label> <!-- Componente do Bootstrap -->
+    <input 
+      id="age" 
+      name="age" 
+      [(ngModel)]="user.age" 
+      class="form-control" 
+      required 
+      type="number" 
+      min="18" 
+      #age="ngModel"
+      [ngClass]="{'is-invalid': age.invalid && age.touched}" /> <!-- Componente do Bootstrap -->
+    <div *ngIf="age.invalid && age.touched" class="text-danger"> <!-- Componente do Bootstrap -->
+      A idade deve ser maior ou igual a 18 anos.
+    </div>
+    <div *ngIf="formRef.submitted && !user.age" class="text-danger"> <!-- Componente do Bootstrap -->
+      Idade é obrigatória.
+    </div>
+  </div>
+  
+  <button type="submit" class="btn btn-primary" [disabled]="formRef.invalid">Registrar</button> 
+  <!-- Componente do Bootstrap -->
+</form>
